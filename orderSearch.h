@@ -31,4 +31,5 @@ int binarySearch(int size,char names[][10],char search[10]){
             }
         }
     }
+    return -1;
 }
