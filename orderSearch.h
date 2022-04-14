@@ -15,11 +15,11 @@ char insertSort(char name[][10], int size){
     }
 }
 
-int binarySearch(int size,char names[][10],char search[10]){
+int binarySearch(char names[][10], char search[10], int size){
     int init,mid,end;
     init=0;
     end = size-1;
-    while(init>=end){
+    while(init<=end){
         mid = (init+end)/2;
         if(strcmp(search,names[mid])==0){
             return mid;
@@ -29,6 +29,7 @@ int binarySearch(int size,char names[][10],char search[10]){
             }else{
                 init = mid+1;
             }
+
         }
     }
     return -1;

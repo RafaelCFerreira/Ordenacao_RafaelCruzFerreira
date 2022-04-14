@@ -6,7 +6,7 @@
 
 int main(){
     char names[MAX_NAMES][10], searchName[10];
-    int option, total=0;
+    int option, total=0, aux;
     do{
         printf("1 - Inserir\n");
         printf("2 - Pesquisar\n");
@@ -17,7 +17,7 @@ int main(){
         scanf("%d", &option);
         system("clear");
         switch (option){
-            case 1: if(total<MAX_NAMES){//working
+            case 1: if(total<MAX_NAMES){
                 if(total==0){
                     printf("Digite o seu nome: ");
                     scanf("%s", names[total]);
@@ -45,21 +45,20 @@ int main(){
                 printf("\n");
             }
             break;
-            case 2: insertSort(names, total);//Not working
+            case 2: insertSort(names, total);
             printf("Digite o nome que deseja procurar:");
             scanf("%s", searchName);
-            int aux = binarySearch(total, names, searchName);
+            aux = binarySearch(names, searchName, total);
             if(aux==-1){
                 printf("Esse nome não existe\n");
             }else{
-                printf("Nome na posição %d\n", aux);
+                printf("Nome na posição %d\n", (aux + 1));
             }
-            //size, names,search
 	        break;
             case 3: printf("Agora sua lista está em ordem alfabética :)\n\n"); 
-            insertSort(names, total);//working
+            insertSort(names, total);
 	        break;
-            case 4:if(total>0){//Working
+            case 4:if(total>0){
                 for(int i=0; i<total; i++){
                     printf("%s\n", names[i]);
                 }
@@ -71,3 +70,4 @@ int main(){
         }
     }while(option == 1 || option == 2 || option == 3 || option == 4);
 }
+
